@@ -3,3 +3,729 @@
 @media(max-width:900px){.hero{min-height:auto}.header{height:135px}.brand img{width:112px;height:112px}.hero-grid{grid-template-columns:1fr 1fr}.hero-copy{padding-left:10px}.hero h1 span{font-size:38px}.hero h1 em{font-size:36px}.hero h1 strong{font-size:21px}.coin{margin-top:-25px}.values{grid-template-columns:1fr 1fr}.values article:nth-child(2){border-right:0}.values article{border-bottom:1px solid #164653}.values article:nth-child(n+3){border-bottom:0}.service-grid{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr}.contact-info{border-right:0;border-bottom:1px solid #14788a;padding:0 0 25px}.contact-form{padding:25px 0 0}}
 @media(max-width:600px){.shell{width:min(92vw,460px)}.header{height:125px;padding-top:18px;align-items:flex-start}.brand img{width:100px;height:100px}.contact-btn{font-size:11px;padding:12px 16px}.hero-grid{display:flex;flex-direction:column}.hero-copy{padding:20px 4px 20px;width:100%}.hero h1 span{font-size:37px}.hero h1 em{font-size:35px}.hero h1 strong{font-size:19px;line-height:1.15}.hero-copy p{font-size:14px}.coin{order:-1;width:75%;align-self:flex-end;margin:-40px -15% -35px 0;opacity:.58}.hero:after{height:110px}.values{grid-template-columns:1fr;margin-top:30px}.values article,.values article:nth-child(2),.values article:nth-child(n+3){border-right:0;border-bottom:1px solid #164653}.values article:last-child{border-bottom:0}.section-title span:before,.section-title span:after{width:55px}.section-title h2{font-size:18px;line-height:1.35}.service-grid{grid-template-columns:1fr}.card{min-height:265px}.contact{padding:24px 20px}.form-grid{grid-template-columns:1fr}.footer p{font-size:9px;letter-spacing:2px;line-height:1.7}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+
+/* Service artwork refinement */
+.card {
+  overflow: hidden;
+}
+
+.card:nth-child(n+5) img {
+  height: 128px;
+  object-fit: cover;
+  object-position: center 82%;
+  filter:
+    brightness(1.38)
+    contrast(1.18)
+    saturate(1.2)
+    drop-shadow(0 0 10px rgba(0, 220, 255, 0.28));
+}
+
+.card:nth-child(-n+4) img {
+  filter:
+    brightness(1.08)
+    contrast(1.08)
+    drop-shadow(0 0 8px rgba(0, 220, 255, 0.18));
+}
+
+/* --- Approved artwork crop corrections --- */
+
+/* Hide unwanted edge content in hero artwork */
+.coin {
+  overflow: hidden;
+}
+
+.coin img {
+  width: 118%;
+  max-width: none;
+  transform: translateX(-10%);
+}
+
+/* Proper clipping window for service artwork */
+.card-art {
+  width: 100%;
+  height: 128px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+/* Prevent screenshot text from neighbouring cards/rows appearing */
+.card-art img {
+  width: 112%;
+  max-width: none;
+  height: auto;
+  min-height: 145px;
+  object-fit: cover;
+  object-position: center bottom;
+  transform: scale(1.10);
+  transform-origin: center bottom;
+  filter:
+    brightness(1.35)
+    contrast(1.16)
+    saturate(1.18)
+    drop-shadow(0 0 11px rgba(0, 220, 255, 0.30));
+}
+
+/* First row needs less aggressive cropping */
+.card:nth-child(-n+4) .card-art img {
+  width: 100%;
+  min-height: 128px;
+  transform: none;
+  filter:
+    brightness(1.12)
+    contrast(1.08)
+    saturate(1.08)
+    drop-shadow(0 0 8px rgba(0, 220, 255, 0.20));
+}
+
+/* Rows two and three contain unwanted text at the top of the source crops */
+.card:nth-child(n+5) .card-art img {
+  width: 118%;
+  min-height: 165px;
+  transform: translateY(5px) scale(1.12);
+}
+
+
+/* --- Logo integration refinement --- */
+
+/* Small Innovative IQ logo in header */
+.brand {
+  display: inline-block;
+  background: transparent;
+}
+
+.brand img {
+  display: block;
+  object-fit: contain;
+  background: transparent;
+
+  /* Removes the dark square appearance */
+  mix-blend-mode: screen;
+
+  /* Fade outer image edges into page background */
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 0%,
+    black 62%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.55) 76%,
+    transparent 88%
+  );
+
+  mask-image: radial-gradient(
+    circle at center,
+    black 0%,
+    black 62%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.55) 76%,
+    transparent 88%
+  );
+
+  filter:
+    brightness(1.16)
+    contrast(1.15)
+    saturate(1.08)
+    drop-shadow(0 0 10px rgba(0, 220, 255, 0.10));
+}
+
+
+/* Large hero coin */
+.coin {
+  overflow: visible;
+  background: transparent;
+}
+
+.coin img {
+  display: block;
+  width: 118%;
+  max-width: none;
+  height: auto;
+  background: transparent;
+
+  /* Black areas disappear naturally into dark hero */
+  mix-blend-mode: screen;
+
+  /* Softly blend crop boundaries */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 0%,
+    black 58%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.72) 78%,
+    rgba(0,0,0,.25) 90%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 0%,
+    black 58%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.72) 78%,
+    rgba(0,0,0,.25) 90%,
+    transparent 100%
+  );
+
+  transform: translateX(-8%);
+
+  filter:
+    brightness(1.08)
+    contrast(1.12)
+    saturate(1.06)
+    drop-shadow(0 0 18px rgba(0, 205, 240, 0.12));
+}
+
+
+/* Slightly soften hero/image transition */
+.hero {
+  isolation: isolate;
+}
+
+.hero-grid {
+  overflow: visible;
+}
+
+
+/* --- Logo integration refinement --- */
+
+/* Small Innovative IQ logo in header */
+.brand {
+  display: inline-block;
+  background: transparent;
+}
+
+.brand img {
+  display: block;
+  object-fit: contain;
+  background: transparent;
+
+  /* Removes the dark square appearance */
+  mix-blend-mode: screen;
+
+  /* Fade outer image edges into page background */
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 0%,
+    black 62%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.55) 76%,
+    transparent 88%
+  );
+
+  mask-image: radial-gradient(
+    circle at center,
+    black 0%,
+    black 62%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.55) 76%,
+    transparent 88%
+  );
+
+  filter:
+    brightness(1.16)
+    contrast(1.15)
+    saturate(1.08)
+    drop-shadow(0 0 10px rgba(0, 220, 255, 0.10));
+}
+
+
+/* Large hero coin */
+.coin {
+  overflow: visible;
+  background: transparent;
+}
+
+.coin img {
+  display: block;
+  width: 118%;
+  max-width: none;
+  height: auto;
+  background: transparent;
+
+  /* Black areas disappear naturally into dark hero */
+  mix-blend-mode: screen;
+
+  /* Softly blend crop boundaries */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 0%,
+    black 58%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.72) 78%,
+    rgba(0,0,0,.25) 90%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 0%,
+    black 58%,
+    rgba(0,0,0,.96) 68%,
+    rgba(0,0,0,.72) 78%,
+    rgba(0,0,0,.25) 90%,
+    transparent 100%
+  );
+
+  transform: translateX(-8%);
+
+  filter:
+    brightness(1.08)
+    contrast(1.12)
+    saturate(1.06)
+    drop-shadow(0 0 18px rgba(0, 205, 240, 0.12));
+}
+
+
+/* Slightly soften hero/image transition */
+.hero {
+  isolation: isolate;
+}
+
+.hero-grid {
+  overflow: visible;
+}
+
+
+/* ============================================================
+   FINAL INNOVATIVE IQ BRAND ARTWORK INTEGRATION
+   ============================================================ */
+
+/* ---------- SMALL HEADER LOGO ---------- */
+
+.brand {
+  position: relative !important;
+  display: block !important;
+  width: 154px !important;
+  height: 154px !important;
+  overflow: visible !important;
+  isolation: auto !important;
+  background: transparent !important;
+}
+
+.brand img {
+  width: 154px !important;
+  height: 154px !important;
+  display: block !important;
+  object-fit: contain !important;
+
+  /* Make the black source background disappear into hero */
+  mix-blend-mode: lighten !important;
+
+  filter:
+    brightness(1.12)
+    contrast(1.22)
+    saturate(0.92)
+    drop-shadow(0 0 10px rgba(0, 215, 235, 0.12)) !important;
+
+  /* Feather the square image boundary */
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse 48% 48% at 50% 50%,
+      #000 0%,
+      #000 68%,
+      rgba(0,0,0,.95) 73%,
+      rgba(0,0,0,.65) 80%,
+      rgba(0,0,0,.20) 88%,
+      transparent 96%
+    ) !important;
+
+  mask-image:
+    radial-gradient(
+      ellipse 48% 48% at 50% 50%,
+      #000 0%,
+      #000 68%,
+      rgba(0,0,0,.95) 73%,
+      rgba(0,0,0,.65) 80%,
+      rgba(0,0,0,.20) 88%,
+      transparent 96%
+    ) !important;
+}
+
+
+/* ---------- LARGE HERO COIN ---------- */
+
+.coin {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: auto !important;
+
+  /* Feather the whole artwork into the hero */
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,.18) 7%,
+      rgba(0,0,0,.78) 15%,
+      #000 23%,
+      #000 89%,
+      rgba(0,0,0,.55) 96%,
+      transparent 100%
+    ) !important;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,.18) 7%,
+      rgba(0,0,0,.78) 15%,
+      #000 23%,
+      #000 89%,
+      rgba(0,0,0,.55) 96%,
+      transparent 100%
+    ) !important;
+}
+
+.coin img {
+  display: block !important;
+
+  /*
+    Enlarge + move artwork left.
+    clip-path removes contaminated left section containing
+    the stray cyan "S".
+  */
+  width: 126% !important;
+  max-width: none !important;
+  height: auto !important;
+
+  transform: translateX(-10%) scale(1.03) !important;
+  transform-origin: center center !important;
+
+  clip-path: inset(0 0 0 13%) !important;
+
+  /*
+    lighten is important here:
+    dark pixels from the source image can no longer create
+    the visible rectangular panel over the hero background.
+  */
+  mix-blend-mode: lighten !important;
+
+  filter:
+    brightness(1.13)
+    contrast(1.20)
+    saturate(1.08)
+    drop-shadow(0 0 16px rgba(0, 205, 235, 0.14)) !important;
+
+  background: transparent !important;
+}
+
+
+/* Blend the hero behind both assets */
+.hero {
+  background:
+    radial-gradient(
+      ellipse at 72% 43%,
+      rgba(0, 117, 157, .14) 0%,
+      rgba(0, 51, 73, .07) 34%,
+      transparent 67%
+    ),
+    #020b12 !important;
+}
+
+
+/* Slight cyan atmosphere where the large coin enters the page */
+.coin::before {
+  content: "";
+  position: absolute;
+  inset: 4% 4% 5% 9%;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 198, 228, .08),
+      transparent 69%
+    );
+
+  filter: blur(20px);
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+
+  .brand,
+  .brand img {
+    width: 112px !important;
+    height: 112px !important;
+  }
+
+  .coin img {
+    width: 128% !important;
+    transform: translateX(-11%) scale(1.02) !important;
+  }
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+  .brand,
+  .brand img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .coin {
+    overflow: hidden !important;
+  }
+
+  .coin img {
+    width: 132% !important;
+    transform: translateX(-12%) scale(1.02) !important;
+    clip-path: inset(0 0 0 14%) !important;
+  }
+
+}
+
+
+/* ============================================================
+   FINAL HERO — exact transparent artwork integration
+   ============================================================ */
+
+.hero {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(
+      circle at 72% 38%,
+      rgba(0, 145, 190, 0.13),
+      transparent 36%
+    ),
+    #020b12 !important;
+}
+
+.brand {
+  position: relative !important;
+  width: 165px !important;
+  height: 145px !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+.brand img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+  filter:
+    brightness(1.08)
+    contrast(1.08)
+    drop-shadow(0 0 10px rgba(0, 220, 255, 0.10)) !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  transform: none !important;
+}
+
+.coin {
+  position: absolute !important;
+  right: -4vw !important;
+  top: 15px !important;
+  width: 59vw !important;
+  max-width: 920px !important;
+  min-width: 660px !important;
+  height: 680px !important;
+  overflow: visible !important;
+  background: transparent !important;
+  z-index: 1 !important;
+}
+
+.coin img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+
+  transform: none !important;
+  clip-path: none !important;
+
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+
+  filter:
+    brightness(1.12)
+    contrast(1.10)
+    saturate(1.12)
+    drop-shadow(0 0 18px rgba(0, 205, 240, 0.15)) !important;
+}
+
+.hero-grid {
+  position: relative !important;
+  z-index: 2 !important;
+  grid-template-columns: 45% 55% !important;
+}
+
+.hero-copy {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+@media (max-width: 900px) {
+
+  .brand {
+    width: 125px !important;
+    height: 115px !important;
+  }
+
+  .coin {
+    width: 65vw !important;
+    min-width: 520px !important;
+    right: -10vw !important;
+    top: 85px !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .brand {
+    width: 100px !important;
+    height: 95px !important;
+  }
+
+  .coin {
+    position: relative !important;
+    width: 115% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    right: auto !important;
+    top: auto !important;
+    margin: -30px -28% -50px auto !important;
+    opacity: 0.82 !important;
+  }
+
+}
+
+
+/* ============================================================
+   FINAL HERO — exact transparent artwork integration
+   ============================================================ */
+
+.hero {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(
+      circle at 72% 38%,
+      rgba(0, 145, 190, 0.13),
+      transparent 36%
+    ),
+    #020b12 !important;
+}
+
+.brand {
+  position: relative !important;
+  width: 165px !important;
+  height: 145px !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+.brand img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+  filter:
+    brightness(1.08)
+    contrast(1.08)
+    drop-shadow(0 0 10px rgba(0, 220, 255, 0.10)) !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  transform: none !important;
+}
+
+.coin {
+  position: absolute !important;
+  right: -4vw !important;
+  top: 15px !important;
+  width: 59vw !important;
+  max-width: 920px !important;
+  min-width: 660px !important;
+  height: 680px !important;
+  overflow: visible !important;
+  background: transparent !important;
+  z-index: 1 !important;
+}
+
+.coin img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+
+  background: transparent !important;
+  mix-blend-mode: normal !important;
+
+  transform: none !important;
+  clip-path: none !important;
+
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+
+  filter:
+    brightness(1.12)
+    contrast(1.10)
+    saturate(1.12)
+    drop-shadow(0 0 18px rgba(0, 205, 240, 0.15)) !important;
+}
+
+.hero-grid {
+  position: relative !important;
+  z-index: 2 !important;
+  grid-template-columns: 45% 55% !important;
+}
+
+.hero-copy {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+@media (max-width: 900px) {
+
+  .brand {
+    width: 125px !important;
+    height: 115px !important;
+  }
+
+  .coin {
+    width: 65vw !important;
+    min-width: 520px !important;
+    right: -10vw !important;
+    top: 85px !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .brand {
+    width: 100px !important;
+    height: 95px !important;
+  }
+
+  .coin {
+    position: relative !important;
+    width: 115% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    right: auto !important;
+    top: auto !important;
+    margin: -30px -28% -50px auto !important;
+    opacity: 0.82 !important;
+  }
+
+}
+

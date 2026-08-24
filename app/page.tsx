@@ -57,7 +57,7 @@ export default function Home(){
  return <main>
   <section className="hero">
     <header className="header shell">
-      <a href="#" className="brand" aria-label="Innovative IQ home"><Image src="/assets/logo.webp" alt="Innovative IQ" width={154} height={154} priority/></a>
+      <a href="#" className="brand" aria-label="Innovative IQ home"><Image src="/assets/innovative-iq-logo-transparent.png" alt="Innovative IQ" width={154} height={154} priority/></a>
       <a href="#contact" className="contact-btn">CONTACT US</a>
     </header>
     <div className="shell hero-grid">
@@ -66,7 +66,7 @@ export default function Home(){
         <i className="rule"/>
         <p>We help ambitious businesses leverage technology, data and AI to solve problems, scale smarter and stay ahead. We work for you not us!</p>
       </div>
-      <div className="coin"><Image src="/assets/hero-coin.webp" alt="Innovative IQ technology coin" width={432} height={374} priority/></div>
+      <div className="coin"><Image src="/assets/innovative-iq-hero-coin-transparent.png" alt="Innovative IQ technology coin" width={432} height={374} priority/></div>
     </div>
   </section>
 
@@ -78,7 +78,7 @@ export default function Home(){
     <div className="section-title"><span>OUR SERVICES</span><h2>End to end technology consultancy built around your business.</h2></div>
     <div className="service-grid">
       {services.map(([img,title,copy])=><article className="card" key={title}>
-        <Image src={`/assets/${img}.webp`} alt="" width={180} height={112} loading="lazy"/>
+        <div className="card-art"><Image src={`/assets/${img}.webp`} alt="" width={180} height={112} loading="lazy"/></div>
         <h3>{title}</h3><p>{copy}</p>
       </article>)}
     </div>
@@ -89,8 +89,8 @@ export default function Home(){
       <h2>LET&apos;S BUILD<br/>SOMETHING GREAT.</h2><i className="short-rule"/>
       <p>Got a challenge? Let&apos;s talk.<br/>We&apos;ll respond promptly.</p>
       <address>
-        <a href="mailto:hello@innovativeiq.co.uk">✉ <span>hello@innovativeiq.co.uk</span></a>
-        <a href="tel:+447448782021">⌕ <span>+44 7448 782 021</span></a>
+        <a href="mailto:info@innovativeiq.co.uk">✉ <span>info@innovativeiq.co.uk</span></a>
+        <a href="tel:+447772278450">⌕ <span>+44 7772 278450</span></a>
         <div>⌖ <span>Global Technology Solutions<br/>with Local Expertise</span></div>
       </address>
     </div>
@@ -98,7 +98,11 @@ export default function Home(){
   </section>
 
   <footer className="shell footer">
-    <Image src="/assets/logo.webp" alt="" width={55} height={55}/><p>STRATEGIC THINKING. TECHNOLOGY LED. BUSINESS GROWTH.</p>
+    <Image src="/assets/innovative-iq-logo-transparent.png" alt="" width={55} height={55}/><p>STRATEGIC THINKING. TECHNOLOGY LED. BUSINESS GROWTH.</p>
   </footer>
  </main>
 }
+
+
+
+
