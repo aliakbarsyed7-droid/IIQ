@@ -1,0 +1,109 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" role="img" aria-hidden="true">
+  <defs>
+
+    <!-- metallic cyan edge -->
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#efffff"/>
+      <stop offset="18%" stop-color="#63f6ff"/>
+      <stop offset="45%" stop-color="#00cfe8"/>
+      <stop offset="70%" stop-color="#087c9b"/>
+      <stop offset="86%" stop-color="#5cf5ff"/>
+      <stop offset="100%" stop-color="#d9ffff"/>
+    </linearGradient>
+
+    <!-- dark metallic body -->
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#183a48"/>
+      <stop offset="25%" stop-color="#071820"/>
+      <stop offset="55%" stop-color="#102d39"/>
+      <stop offset="78%" stop-color="#031016"/>
+      <stop offset="100%" stop-color="#14667a"/>
+    </linearGradient>
+
+    <!-- glass surface -->
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#baffff" stop-opacity=".28"/>
+      <stop offset="35%" stop-color="#19ddec" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#00151e" stop-opacity=".04"/>
+    </linearGradient>
+
+    <!-- cyan halo -->
+    <radialGradient id="halo">
+      <stop offset="0%" stop-color="#28f4ff" stop-opacity=".32"/>
+      <stop offset="45%" stop-color="#00cbe5" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#00cbe5" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- strong realistic glow -->
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="
+          0 0 0 0 0
+          0 0 0 0 .9
+          0 0 0 0 1
+          0 0 0 1 0"
+        result="cyanBlur"
+      />
+      <feMerge>
+        <feMergeNode in="cyanBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- deeper object shadow -->
+    <filter id="shadow" x="-70%" y="-70%" width="240%" height="240%">
+      <feDropShadow
+        dx="0"
+        dy="7"
+        stdDeviation="5"
+        flood-color="#000000"
+        flood-opacity=".75"
+      />
+      <feDropShadow
+        dx="0"
+        dy="0"
+        stdDeviation="4"
+        flood-color="#00dff2"
+        flood-opacity=".38"
+      />
+    </filter>
+
+  </defs>
+
+    <ellipse
+    cx="120"
+    cy="78"
+    rx="91"
+    ry="56"
+    fill="url(#halo)"
+  />
+
+  <ellipse
+    cx="120"
+    cy="119"
+    rx="64"
+    ry="7"
+    fill="#00d7e8"
+    opacity=".10"
+    filter="url(#glow)"
+  />
+
+  <g
+    fill="none"
+    stroke="url(#g)"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#glow)"
+  >
+    <path d="M65 104h110"/>
+<path d="M78 104V57h20v47M110 104V39h20v65M142 104V68h20v36"/>
+<path d="M70 46l44-18 22 9 34-18"/>
+<circle cx="167" cy="31" r="9"/>
+<path d="M167 24v14M162 28h7c4 0 4 6 0 6h-7"/>
+  </g>
+</svg>
+

@@ -729,3 +729,785 @@
 
 }
 
+
+/* ==========================================================
+   SERVICE CARD ARTWORK — CLEAN CONTAINED LAYOUT
+   ========================================================== */
+
+.card {
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-height: 286px !important;
+  padding: 10px 18px 20px !important;
+}
+
+.card-art {
+  width: 100% !important;
+  height: 135px !important;
+  min-height: 135px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  overflow: hidden !important;
+  margin: 0 0 5px !important;
+  padding: 5px 8px !important;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 205, 235, 0.08),
+      transparent 68%
+    ) !important;
+}
+
+/* Override ALL previous service-image crop rules */
+.card .card-art img,
+.card:nth-child(-n+4) .card-art img,
+.card:nth-child(n+5) .card-art img {
+
+  width: 100% !important;
+  height: 125px !important;
+
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 125px !important;
+
+  object-fit: contain !important;
+  object-position: center center !important;
+
+  transform: none !important;
+  clip-path: none !important;
+
+  mix-blend-mode: screen !important;
+
+  filter:
+    brightness(1.35)
+    contrast(1.18)
+    saturate(1.15)
+    drop-shadow(0 0 9px rgba(0, 220, 255, 0.24)) !important;
+}
+
+.card h3 {
+  margin-top: 4px !important;
+}
+
+@media (max-width: 600px) {
+
+  .card-art {
+    height: 145px !important;
+    min-height: 145px !important;
+  }
+
+  .card .card-art img,
+  .card:nth-child(-n+4) .card-art img,
+  .card:nth-child(n+5) .card-art img {
+    height: 135px !important;
+    max-height: 135px !important;
+  }
+
+}
+
+
+/* ==========================================================
+   FINAL SERVICE SVG ARTWORK
+   ========================================================== */
+
+.card-art {
+  width: 100% !important;
+  height: 138px !important;
+  min-height: 138px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  margin: 0 0 6px !important;
+  padding: 8px 14px !important;
+  background: transparent !important;
+}
+
+.card-art img {
+  width: 100% !important;
+  height: 120px !important;
+  max-width: 210px !important;
+  max-height: 120px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+
+  transform: none !important;
+  clip-path: none !important;
+  mix-blend-mode: normal !important;
+
+  filter:
+    drop-shadow(0 0 8px rgba(0, 220, 255, 0.28)) !important;
+}
+
+.card:nth-child(-n+4) .card-art img,
+.card:nth-child(n+5) .card-art img {
+  width: 100% !important;
+  height: 120px !important;
+  max-width: 210px !important;
+  max-height: 120px !important;
+  transform: none !important;
+  filter:
+    drop-shadow(0 0 8px rgba(0, 220, 255, 0.28)) !important;
+}
+
+
+/* Premium dimensional service artwork */
+
+.card-art {
+    position: relative !important;
+    height: 145px !important;
+    min-height: 145px !important;
+    padding: 4px 8px !important;
+    overflow: hidden !important;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 55%,
+            rgba(0, 213, 235, .08),
+            rgba(0, 90, 115, .025) 45%,
+            transparent 72%
+        ) !important;
+}
+
+.card-art::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 7px;
+    height: 12px;
+
+    background: rgba(0, 220, 240, .10);
+    filter: blur(12px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.card .card-art img,
+.card:nth-child(-n+4) .card-art img,
+.card:nth-child(n+5) .card-art img {
+
+    width: 100% !important;
+    height: 138px !important;
+    max-width: 225px !important;
+    max-height: 138px !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    transform: none !important;
+    clip-path: none !important;
+    mix-blend-mode: normal !important;
+
+    filter:
+        contrast(1.12)
+        saturate(1.15)
+        drop-shadow(0 5px 5px rgba(0,0,0,.7))
+        drop-shadow(0 0 8px rgba(0,220,240,.25))
+        !important;
+}
+
+
+/* ==========================================================
+   PHOTOGRAPHIC SERVICE CARDS
+   ========================================================== */
+
+.photo-card {
+  position: relative !important;
+  min-height: 300px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+
+  display: flex !important;
+  align-items: flex-end !important;
+
+  border: 1px solid #14788a !important;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    background-size .35s ease !important;
+}
+
+.photo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,12,19,.05) 0%,
+      rgba(0,12,19,.20) 38%,
+      rgba(0,10,16,.88) 72%,
+      rgba(0,8,13,.98) 100%
+    );
+
+  pointer-events: none;
+}
+
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(0,220,240,.07),
+      transparent 50%
+    );
+
+  pointer-events: none;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px) !important;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.40),
+    0 0 22px rgba(0,211,236,.16) !important;
+}
+
+.card-copy {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  padding: 22px 20px 24px;
+
+  text-align: left;
+}
+
+.photo-card h3 {
+  margin: 0 0 10px !important;
+
+  color: #d8fbff !important;
+  font-size: 17px !important;
+  line-height: 1.22 !important;
+  text-align: left !important;
+
+  text-shadow:
+    0 2px 4px rgba(0,0,0,.85),
+    0 0 10px rgba(0,220,240,.12);
+}
+
+.photo-card p {
+  margin: 0 !important;
+
+  color: #f0f5f6 !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  text-align: left !important;
+
+  text-shadow: 0 2px 3px rgba(0,0,0,.90);
+}
+
+@media (max-width: 900px) {
+  .photo-card {
+    min-height: 320px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-card {
+    min-height: 340px !important;
+  }
+
+  .card-copy {
+    padding: 24px 22px 27px !important;
+  }
+}
+
+
+/* ==========================================================
+   CINEMATIC TECHNOLOGY SERVICE CARDS
+   ========================================================== */
+
+.photo-card {
+    position: relative !important;
+    min-height: 310px !important;
+    overflow: hidden !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    border: 1px solid rgba(15, 184, 207, .58) !important;
+    border-radius: 7px !important;
+
+    isolation: isolate !important;
+}
+
+/* Dark cinematic readability layer */
+.photo-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 7, 12, .04) 0%,
+            rgba(0, 10, 16, .08) 30%,
+            rgba(0, 10, 16, .46) 58%,
+            rgba(0, 8, 14, .96) 100%
+        ) !important;
+}
+
+/* Innovative IQ cyan atmosphere */
+.photo-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            rgba(0, 222, 245, .15),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(0, 185, 220, .07),
+            transparent 45%
+        ) !important;
+
+    mix-blend-mode: screen;
+}
+
+.photo-card .card-copy {
+    position: relative !important;
+    z-index: 2 !important;
+
+    width: 100% !important;
+    padding: 24px 21px !important;
+
+    margin-top: auto !important;
+}
+
+.photo-card h3 {
+    color: #d9fcff !important;
+
+    font-size: 17px !important;
+    font-weight: 800 !important;
+
+    margin: 0 0 9px !important;
+
+    text-shadow:
+        0 2px 5px #000,
+        0 0 14px rgba(0, 220, 240, .18) !important;
+}
+
+.photo-card p {
+    color: #f2f6f7 !important;
+
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.95) !important;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px) !important;
+
+    box-shadow:
+        0 14px 32px rgba(0,0,0,.55),
+        0 0 24px rgba(0,215,240,.17) !important;
+}
+
+
+/* Individually frame important subjects */
+
+.photo-card:nth-child(1) {
+    background-position: center 42% !important;
+}
+
+.photo-card:nth-child(2) {
+    background-position: center 45% !important;
+}
+
+.photo-card:nth-child(3) {
+    background-position: center !important;
+}
+
+.photo-card:nth-child(4) {
+    background-position: center 40% !important;
+}
+
+.photo-card:nth-child(5) {
+    background-position: center 38% !important;
+}
+
+.photo-card:nth-child(6) {
+    background-position: center !important;
+}
+
+/* AI robot */
+.photo-card:nth-child(7) {
+    background-position: center 32% !important;
+}
+
+/* Digital growth */
+.photo-card:nth-child(8) {
+    background-position: center 42% !important;
+}
+
+/* Outsourcing people */
+.photo-card:nth-child(9) {
+    background-position: center 38% !important;
+}
+
+.photo-card:nth-child(10),
+.photo-card:nth-child(11),
+.photo-card:nth-child(12) {
+    background-position: center !important;
+}
+
+
+/* Final framing for selected photography */
+
+.photo-card:nth-child(3) {
+  /* IT & Cloud Services */
+  background-position: center 48% !important;
+}
+
+.photo-card:nth-child(4) {
+  /* CRM & Sales Systems */
+  background-position: center 42% !important;
+}
+
+.photo-card:nth-child(8) {
+  /* Web & Digital Growth */
+  background-position: center 47% !important;
+}
+
+.photo-card:nth-child(9) {
+  /* Outsourcing Support */
+  background-position: center 34% !important;
+}
+
+.photo-card:nth-child(12) {
+  /* Cyber Security */
+  background-position: center 50% !important;
+}
+
+
+/* Web & Digital Growth — digital marketing dashboard */
+.photo-card:nth-child(8) {
+    background-position: center 48% !important;
+}
+
+
+/* Digital Transformation — modern technology team */
+.photo-card:nth-child(2) {
+    background-position: center 42% !important;
+}
+
+
+/* ==========================================================
+   FINAL HERO LOGO INTEGRATION
+   ========================================================== */
+
+/* Keep hero as the positioning canvas */
+.hero {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+}
+
+
+/* ----------------------------------------------------------
+   SMALL TOP-LEFT LOGO
+   Soft transparent watermark blended into background
+   ---------------------------------------------------------- */
+
+.brand {
+    position: relative !important;
+    z-index: 5 !important;
+    background: transparent !important;
+}
+
+.brand img {
+    opacity: 0.52 !important;
+
+    mix-blend-mode: screen !important;
+
+    filter:
+        brightness(1.05)
+        contrast(1.08)
+        saturate(0.90)
+        drop-shadow(0 0 12px rgba(0, 220, 240, .08))
+        !important;
+
+    /*
+       Fade the outside edges so there is no visible
+       rectangular image boundary.
+    */
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 0%,
+            #000 52%,
+            rgba(0,0,0,.88) 64%,
+            rgba(0,0,0,.48) 76%,
+            rgba(0,0,0,.12) 87%,
+            transparent 97%
+        ) !important;
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 0%,
+            #000 52%,
+            rgba(0,0,0,.88) 64%,
+            rgba(0,0,0,.48) 76%,
+            rgba(0,0,0,.12) 87%,
+            transparent 97%
+        ) !important;
+}
+
+
+/* ----------------------------------------------------------
+   LARGE INNOVATIVE IQ COIN
+
+   This becomes background artwork rather than a separate
+   foreground image.
+   ---------------------------------------------------------- */
+
+.coin {
+    position: absolute !important;
+
+    top: -35px !important;
+    right: -1% !important;
+
+    width: 68% !important;
+    max-width: 950px !important;
+    min-width: 700px !important;
+    height: 700px !important;
+
+    margin: 0 !important;
+
+    z-index: 0 !important;
+
+    overflow: visible !important;
+    pointer-events: none !important;
+
+    opacity: 1 !important;
+
+    background: transparent !important;
+}
+
+
+/* Actual transparent coin artwork */
+.coin img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    opacity: 0.48 !important;
+
+    /*
+       Screen blend removes remaining dark pixels and lets
+       the navy hero background show through the artwork.
+    */
+    mix-blend-mode: screen !important;
+
+    transform: none !important;
+    clip-path: none !important;
+
+    filter:
+        brightness(0.94)
+        contrast(1.04)
+        saturate(0.92)
+        drop-shadow(0 0 20px rgba(0, 200, 230, .08))
+        !important;
+
+    /*
+       Fade the complete outside edge of the artwork.
+    */
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 55% 55% at 52% 48%,
+            #000 0%,
+            #000 54%,
+            rgba(0,0,0,.88) 66%,
+            rgba(0,0,0,.52) 78%,
+            rgba(0,0,0,.15) 90%,
+            transparent 100%
+        ) !important;
+
+    mask-image:
+        radial-gradient(
+            ellipse 55% 55% at 52% 48%,
+            #000 0%,
+            #000 54%,
+            rgba(0,0,0,.88) 66%,
+            rgba(0,0,0,.52) 78%,
+            rgba(0,0,0,.15) 90%,
+            transparent 100%
+        ) !important;
+}
+
+
+/* ----------------------------------------------------------
+   TEXT MUST SIT ABOVE LARGE LOGO
+   ---------------------------------------------------------- */
+
+.hero-grid {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.hero-copy {
+    position: relative !important;
+    z-index: 4 !important;
+
+    /*
+       Allow headline to extend over the transparent coin.
+    */
+    width: 125% !important;
+    max-width: 650px !important;
+}
+
+.hero-copy h1,
+.hero-copy p,
+.hero-copy .rule {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+
+/* Keep text crisp while coin remains visible underneath */
+.hero-copy h1 {
+    text-shadow:
+        0 2px 7px rgba(0, 5, 10, .72) !important;
+}
+
+.hero-copy p {
+    text-shadow:
+        0 2px 6px rgba(0, 5, 10, .85) !important;
+}
+
+
+/* Additional cyan atmosphere behind coin */
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 750px;
+    height: 550px;
+
+    right: -40px;
+    top: 25px;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(0, 185, 220, .10),
+            rgba(0, 100, 140, .035) 48%,
+            transparent 72%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ----------------------------------------------------------
+   TABLET
+   ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .coin {
+        width: 76% !important;
+        min-width: 600px !important;
+        right: -17% !important;
+        top: 25px !important;
+    }
+
+    .coin img {
+        opacity: 0.38 !important;
+    }
+
+    .hero-copy {
+        width: 115% !important;
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+   ---------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .brand img {
+        opacity: 0.58 !important;
+    }
+
+    .coin {
+        position: absolute !important;
+
+        width: 150% !important;
+        min-width: 0 !important;
+        height: 520px !important;
+
+        right: -65% !important;
+        top: 90px !important;
+
+        margin: 0 !important;
+    }
+
+    .coin img {
+        opacity: 0.25 !important;
+    }
+
+    .hero-copy {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+}
+
+
+/* Top-left logo — brighter and more prominent only */
+.brand img {
+    opacity: 0.78 !important;
+
+    mix-blend-mode: screen !important;
+
+    filter:
+        brightness(1.28)
+        contrast(1.15)
+        saturate(1.08)
+        drop-shadow(0 0 10px rgba(0, 220, 240, .18))
+        !important;
+}
+
+/* Keep mobile logo clearly visible too */
+@media (max-width: 600px) {
+    .brand img {
+        opacity: 0.82 !important;
+    }
+}
+

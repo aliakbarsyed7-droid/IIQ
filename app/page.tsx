@@ -57,7 +57,10 @@ export default function Home(){
  return <main>
   <section className="hero">
     <header className="header shell">
-      <a href="#" className="brand" aria-label="Innovative IQ home"><Image src="/assets/innovative-iq-logo-transparent.png" alt="Innovative IQ" width={154} height={154} priority/></a>
+      <div className="brand" aria-label="Innovative IQ">
+  <Image src="/assets/innovative-iq-logo-transparent.png" alt="" width={154} height={154} priority/>
+
+</div>
       <a href="#contact" className="contact-btn">CONTACT US</a>
     </header>
     <div className="shell hero-grid">
@@ -77,9 +80,15 @@ export default function Home(){
   <section className="shell services">
     <div className="section-title"><span>OUR SERVICES</span><h2>End to end technology consultancy built around your business.</h2></div>
     <div className="service-grid">
-      {services.map(([img,title,copy])=><article className="card" key={title}>
-        <div className="card-art"><Image src={`/assets/${img}.webp`} alt="" width={180} height={112} loading="lazy"/></div>
-        <h3>{title}</h3><p>{copy}</p>
+      {services.map(([img,title,copy])=><article
+        className="card photo-card"
+        key={title}
+        style={{backgroundImage:`linear-gradient(to bottom, rgba(1,10,16,.20), rgba(1,10,16,.92)), url(/assets/services-stock/${img}.jpg)`}}
+      >
+        <div className="card-copy">
+          <h3>{title}</h3>
+          <p>{copy}</p>
+        </div>
       </article>)}
     </div>
   </section>
@@ -102,6 +111,11 @@ export default function Home(){
   </footer>
  </main>
 }
+
+
+
+
+
 
 
 
